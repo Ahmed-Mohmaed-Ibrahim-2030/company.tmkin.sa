@@ -3,7 +3,7 @@
 @section('content')
     <section id="hero-animated" class="hero-animated d-flex align-items-center ">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-            <img src="assets/img/main.svg" class="img-fluid animated">
+            <img src="assets/img/main.webp" class="img-fluid  ">
 {{--            <h2>أهلا بكم في <span>شركة تمكين الأوقاف</span></h2>--}}
             <h2 style="color: var(--color-font) !important">أهلا بكم في شركة تمكين الأوقاف</h2>
 {{--            <p>.تمكين الأوقاف الخيار الأفضل لأي وقف معطل </p>--}}
@@ -18,181 +18,139 @@
 
             <div class="section-header">
                 <h2 class="">مجالات أعمال الشركة</h2>
-                <p>نسعى لتقديم خدمات متنوعة من اجل كفاءة أفضل  </p>
+                <p>
+            خدماتنا مخصصة للكيانات والشركات والمحلات التجارية
+
+                </p>
             </div>
 
-            <div >
-{{--                <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">--}}
-{{--                    <div class="service-item">--}}
-{{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/img/services/real-estate.jpg')}}" class="img-fluid" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="details position-relative">--}}
-{{--                            <div class="icon">--}}
-{{--                                <i class="bi bi-house-fill"></i>--}}
-{{--                            </div>--}}
-{{--                            <a href="#" class="stretched-link">--}}
-{{--                                <h3>عقارات</h3>--}}
-{{--                            </a>--}}
-
-{{--                            <a href="#" class="stretched-link"></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div><!-- End Service Item -->--}}
-{{--                <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">--}}
-{{--                    <div class="service-item ">--}}
-{{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/img/services/building.jpg')}}" class="img-fluid" alt="">--}}
-{{--                        </div>--}}
 
 
-{{--                        <div class="details position-relative ">--}}
-{{--                            <div class="icon">--}}
-{{--                                <i class="bi bi-building"></i>--}}
-{{--                            </div>--}}
-{{--                            <a href="#" class="stretched-link">--}}
-{{--                                <h3>الإنشاءات</h3>--}}
-{{--                            </a>--}}
+<div class="card-group  ">
+<div class="row justify-content-between">
+
+<div class="col-12  col-md-6 col-lg-3 mt-3 ">
+<div style="direction: rtl" class="card shadow  " >
+<img src="{{asset('assets/img/services/building.webp')}}" class="card-img-top" alt="...">
+<div class="card-body text-center">
+<h5 class="card-title">{{$Services[0]->name_ar}}</h5>
+
+</div>
+<ul class="list-group list-group-flush">
+@if(isset($Services[0]->sub_services))
+<?php foreach ($Services[0]->sub_services as $sub ): ?>
+
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+{{$sub->name_ar}} </li>
+<?php endforeach; ?>
+@else
+</ul>
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+التشطيب والترميم </li>
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+الديكورات</li>
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+الهدم والإزالة والحفريات  </li>
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+أعمال الطرق  </li>
+@endif
+</ul>
+<div class="card-body text-center">
+{{--                            <a href="#" class="card-link">'gf '</a>--}}
+<a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
+</div>
+</div>
+
+</div>
+
+<div class="col-12  col-md-6 col-lg-3 mt-3 ">
+<div style="direction: rtl" class="card  shadow" >
+<img src="{{asset('assets/img/services/real-estate.webp')}}" class="card-img-top" alt="...">
+<div class="card-body text-center">
+
+<h5 class="card-title">{{$Services[1]->name_ar}}</h5>
+
+</div>
+<ul class="list-group list-group-flush">
+<?php foreach ($Services[1]->sub_services as $sub ): ?>
+
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+{{$sub->name_ar}} </li>
+<?php endforeach; ?>
+</ul>
+<div class="card-body text-center ">
+{{--                            <a href="{{route('service_request}}" class="card-link">'gf '</a>--}}
+<a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
+</div>
+</div>
+</div>
+
+<div class="col-12  col-md-6 col-lg-3 mt-3  ">
+<div style="direction: rtl" class="card shadow " >
+<img src="{{asset('assets/img/services/maintan.webp')}}" class="card-img-top" alt="...">
+<div class="card-body text-center">
+<h5 class="card-title">{{$Services[2]->name_ar}}</h5>
+
+</div>
+<ul class="list-group list-group-flush">
+<?php foreach ($Services[2]->sub_services as $sub ): ?>
+
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+{{$sub->name_ar}} </li>
+<?php endforeach; ?>
+</ul>
+<div class="card-body text-center content">
+{{--                            <a href="{{route('service_request}}" class="card-link">'gf '</a>--}}
+<a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
+</div>
 
 
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div><!-- End Service Item -->--}}
-{{--                <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">--}}
-{{--                    <div class="service-item">--}}
-{{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/img/services/taskhel.jpg')}}" class="img-fluid" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="details position-relative">--}}
-{{--                            <div class="icon">--}}
-{{--                                <i class="bi bi-chat-square-text"></i>--}}
-{{--                            </div>--}}
-{{--                            <a href="#" class="stretched-link">--}}
-{{--                                <h3>الخدمات </h3>--}}
-{{--                            </a>--}}
+</div>
+</div>
+<div class="col-12  col-md-6 col-lg-3 mt-3  ">
+<div style="direction: rtl" class="card shadow " >
+<img src="{{asset('assets/img/services/invest.webp')}}" class="card-img-top" alt="...">
+<div class="card-body text-center">
+<h5 class="card-title">{{$Services[3]->name_ar}}</h5>
 
-{{--                            <a href="#" class="stretched-link"></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--         iv><!-- End Service Item -->--}}
-             <div class="card-group">
-                    <div style="direction: rtl" class="card  me-1" >
-                        <img src="{{asset('assets/img/services/building.jpg')}}" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">إنشاءات </h5>
-                            {{--                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                التشييد والبناء </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                التشطيب والترميم </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                               الديكورات</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                الهدم والإزالة والحفريات  </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                أعمال الطرق  </li>
+</div>
+<ul class="list-group list-group-flush">
+<?php foreach ($Services[3]->sub_services as $sub ): ?>
 
-                        </ul>
-                        <div class="card-body text-center">
-                            {{--                            <a href="#" class="card-link">'gf '</a>--}}
-                            <a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
-                        </div>
-                    </div>
+<li class="list-group-item service-list">
+<i style="" class="bi bi-star-fill"></i>
+{{$sub->name_ar}} </li>
+<?php endforeach; ?>
+</ul>
+<div class="card-body text-center content">
+{{--                            <a href="{{route('service_request}}" class="card-link">'gf '</a>--}}
+<a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
+</div>
+</div>
 
-
-                    <div style="direction: rtl" class="card  " >
-                        <img src="{{asset('assets/img/services/real-estate.jpg')}}" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">عقارات </h5>
-                            {{--                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                التطوير العقاري</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                شراء</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                بيع</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                استثمار</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                استصلاح الأراضي</li>
-
-                        </ul>
-                        <div class="card-body text-center ">
-                            {{--                            <a href="{{route('service_request}}" class="card-link">'gf '</a>--}}
-                            <a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
-                        </div>
-                    </div>
-
-
-                    <div style="direction: rtl" class="card  ms-1" >
-                        <img src="{{asset('assets/img/services/maintan.jpg')}}" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">خدمات  </h5>
-                            {{--                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
-                        </div>
-                        <ul class="list-group list-group-flush" style="height: 204px; overflow-y: scroll">
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                الصيانة </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                               التجهيز والتأثيث</li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                الشحن والتفريغ </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                               التخزين  </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                نقل البضائع </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                تشغيل  </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                إدراة الأملاك </li>
-                            <li class="list-group-item service-list">
-                                <i style="" class="bi bi-star-fill"></i>
-                                أعمال النظافة  </li>
-
-
-                        </ul>
-                        <div class="card-body text-center content">
-                            {{--                            <a href="{{route('service_request}}" class="card-link">'gf '</a>--}}
-{{--                            <a href="{{route('service_request}}" class="card-link">طلب الخدمة</a>--}}
-                            <a href="{{route('service_request')}}" class="btn btn-outline-btn " >لطلب خدمة</a>
-                        </div>
-                    </div>
-                </div><!-- End Service Item -->
-            </div>
-{{--            <div class="text-center p-3 ">--}}
-
-{{--            <a href="{{route('services')}}" class="btn btn-outline-warning">عرض كل الخدمات</a>--}}
-{{--            </div>--}}
-        </div>
+</div>
+</div>
+    
+</div>
+    
+    
     </section>
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
                 <h2 class="pt-3">شركة تمكين الأوقاف </h2>
-                <p > .شركة خدمية تهتم بالأوقاف المعطلة والغير مستغلة وإدارة وتشغيل (منصة تمكين) المتخصصة في تأسيس وتأهيل وتنمية واستدامة الأوقاف</p>
+                <!-- <p > .شركة خدمية تهتم بالأوقاف المعطلة والغير مستغلة وإدارة وتشغيل (منصة تمكين) المتخصصة في تأسيس وتأهيل وتنمية واستدامة الأوقاف</p> -->
+<p>.أول شركة شاملة متخصصة في خدمة الأوقاف واستثماراتها تأسيساً وتأهيلاً واستدامة
 
+  وإدارة وتشغيل (منصة تمكين) </p>
             </div>
 
             <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200" style="direction: rtl">
@@ -216,8 +174,8 @@
                                 رسالتنا </a></li>
                         <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">
                                 طموحنا </a></li>
-                        <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">
-                                الأهداف العامة  </a></li>
+                        <!-- <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">
+                                الأهداف العامة  </a></li> -->
                     </ul><!-- End Tabs -->
 
                     <!-- Tab Content -->
@@ -291,7 +249,7 @@
 
 
                         </div><!-- End Tab 3 Content -->
-                        <div class="tab-pane fade show" id="tab4">
+                        <!-- <div class="tab-pane fade show" id="tab4">
 
                             <div class="d-flex align-items-center mt-4">
                                 <i class="bi bi-check2"></i>
@@ -320,7 +278,7 @@
                                 <i class="bi bi-check2"></i>
                                 <h4>	المساهمة في خلق فرص عمل للمجتمع.</h4>
                             </div>
-
+ -->
 
 
                         </div><!-- End Tab 4 Content -->
@@ -341,7 +299,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('assets/img/testimonials/king.jpg')}}" class="testimonial-img" alt="">
+                            <img src="{{asset('assets/img/testimonials/king.webp')}}" class="testimonial-img" alt="">
                             <h3 style="direction: rtl ; color: var(--color-white) !important;">الملك سلمان بن عبدالعزيز آل سعود</h3>
                             <h4 style="direction: rtl ; color: var(--color-white) !important;">خادم الحرمين الشريفين</h4>
 
@@ -354,7 +312,7 @@
                     </div><!-- End testimonial item -->
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="https://tmkin.sa/wp-content/uploads/2022/09/king-150x150.png" class="testimonial-img" alt="">
+                            <img src="https://tmkin.sa/wp-content/uploads/2022/09/king-150x150.webp" class="testimonial-img" alt="">
                             <h3 style="direction: rtl ; color: var(--color-white) !important;">صاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزيز</h3>
                             <h4 style="direction: rtl ; color: var(--color-white) !important;">ولي العهد</h4>
 
@@ -368,7 +326,7 @@
 
             {{--        <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                            <img src="assets/img/testimonials/testimonials-2.webp" class="testimonial-img" alt="">
                             <h3>Sara Wilsson</h3>
                             <h4>Designer</h4>
                             <div class="stars">
@@ -384,7 +342,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                            <img src="assets/img/testimonials/testimonials-3.webp" class="testimonial-img" alt="">
                             <h3>Jena Karlis</h3>
                             <h4>Store Owner</h4>
                             <div class="stars">
@@ -400,7 +358,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                            <img src="assets/img/testimonials/testimonials-4.webp" class="testimonial-img" alt="">
                             <h3>Matt Brandon</h3>
                             <h4>Freelancer</h4>
                             <div class="stars">
@@ -416,7 +374,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                            <img src="assets/img/testimonials/testimonials-5.webp" class="testimonial-img" alt="">
                             <h3>John Larson</h3>
                             <h4>Entrepreneur</h4>
                             <div class="stars">
@@ -521,6 +479,36 @@
 
 {{--                    </div>--}}
 <h1 class="text-center mb-5">شركاء التمكين </h1>
+          <div class="row justify-content-center">
+<ul class="col-12 col-md-8 col-lg-4 "  style="direction: rtl;list-style-type: none">
+
+    <li class="d-flex align-items-center mt-2">
+        <i class="bi bi-check2"></i> <h6>
+
+  	التسجيل وفتح حساب.
+        </h6>
+    </li>
+    <li class="d-flex align-items-center mt-2">
+        <i class="bi bi-check2"></i> <h6>
+
+      	اعتماد حساب الشريك.
+        </h6>
+    </li>
+    <li class="d-flex align-items-center mt-2">
+        <i class="bi bi-check2"></i> <h6>
+
+    إتاحة الفرص المناسبة للشريك.
+        </h6>
+    </li>
+    <li class="d-flex align-items-center mt-2">
+        <i class="bi bi-check2"></i> <h6>
+
+  تنفيذ الأعمال عبر بوابة الشركاء.
+        </h6>
+    </li >
+
+</ul>
+</div>
                     <div class="text-center">
                         <a href="{{route('add-new-partner')}}" class="btn btn-outline-warning " style="color: var(--color-dark)!important;">
                             نسعد بانضمامكم
@@ -528,7 +516,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/faq.jpg");'>&nbsp;</div>
+                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/faq.webp");'>&nbsp;</div>
             </div>
 
         </div>
@@ -543,12 +531,21 @@
             </div>
 
         </div>
+<!--
 
+
+  -->
         <div class="container-fluid" data-aos="fade-up" data-aos-delay="200">
 
             <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+<!--
+this filter is hiden by display none
+coud actived by removing d-none class
 
-                <ul class="portfolio-flters" style="direction: rtl">
+
+  -->
+
+                <ul class="portfolio-flters d-none" style="direction: rtl">
                     <li data-filter="*" class="filter-active">كل الأعمال </li>
                     <li data-filter=".filter-app">التشييد والبناء  </li>
                     <li data-filter=".filter-product">استصلاح الأراضي  </li>
@@ -559,141 +556,141 @@
                 <div class="row g-0 portfolio-container justify-end" style="direction: rtl !important;">
 
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="assets/img/portfolio/app.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/portfolio/app4.webp" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            <a href="assets/img/portfolio/app.jpg" title="مركز الأعمال الرقمي" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="assets/img/portfolio/app4.webp" title="مركز الأعمال الرقمي" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             <h4>مركز الأعمال الرقمي</h4>
                         </div>
                     </div><!-- End Portfolio Item -->
 
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-                        <img src="assets/img/portfolio/app1.png" class="img-fluid" alt="">
+                        <img src="assets/img/portfolio/app1.webp" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>ضاحية الرياض </h4>
-                            <a href="assets/img/portfolio/app1.png" title="ضاحية الرياض" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="assets/img/portfolio/app1.webp" title="ضاحية الرياض" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         </div>
                     </div><!-- End Portfolio Item -->
 
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
-                        <img src="assets/img/portfolio/app2.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/portfolio/app2.webp" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>سلسلة فنادق </h4>
-                            <a href="assets/img/portfolio/app2.jpg" title="سلسلة فنادق" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="assets/img/portfolio/app2.webp" title="سلسلة فنادق" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         </div>
                     </div><!-- End Portfolio Item -->
 
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
-                        <img src="assets/img/portfolio/app3.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/portfolio/app3.webp" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>أبراج واجهة الرياض </h4>
-                            <a href="assets/img/portfolio/app3.jpg" title="أبراج واجهة الرياض" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="assets/img/portfolio/app3.webp" title="أبراج واجهة الرياض" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         </div>
                     </div><!-- End Portfolio Item -->
                     {{-- <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
-                         <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/books-1.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Books 1</h4>
-                             <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/books-1.webp" title="Branding 1" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                         <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/app-2.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>App 2</h4>
-                             <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/app-2.webp" title="App 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-                         <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/product-2.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Product 2</h4>
-                             <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/product-2.webp" title="Product 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-                         <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/product-2.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Product 2</h4>
-                             <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/product-2.webp" title="Product 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
-                         <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/branding-2.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Branding 2</h4>
-                             <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/branding-2.webp" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
-                         <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/books-2.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Books 2</h4>
-                             <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/books-2.webp" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                         <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/app-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>App 3</h4>
-                             <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/app-3.webp" title="App 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                         <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/app-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>App 3</h4>
-                             <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/app-3.webp" title="App 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div>  <!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-                         <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/product-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Product 3</h4>
-                             <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/product-3.webp" title="Product 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
-                         <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/branding-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Branding 3</h4>
-                             <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/branding-3.webp" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
-                         <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/branding-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Branding 3</h4>
-                             <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/branding-3.webp" title="Branding 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
 
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
-                         <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
+                         <img src="assets/img/portfolio/books-3.webp" class="img-fluid" alt="">
                          <div class="portfolio-info">
                              <h4>Books 3</h4>
-                             <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                             <a href="assets/img/portfolio/books-3.webp" title="Branding 3" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                          </div>
                      </div><!-- End Portfolio Item -->
@@ -749,7 +746,7 @@
                             <i class="bi bi-phone flex-shrink-0"></i>
                             <div>
                                 <h4>الجوال :</h4>
-                                <p style="direction: rtl">966546642413+</p>
+                                <p style="direction: rtl">966555320076+</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -770,8 +767,10 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="الموضوع" value="{{old('subject')}}" required>
-                        </div>
+						<input type="text" class="form-control" name="subject"
+							id="subject" placeholder="الموضوع" value="{{old('subject')}}"
+							required>
+					</div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" name="body" placeholder="الرسالة"  required>{{old('body')}}</textarea>
                         </div>

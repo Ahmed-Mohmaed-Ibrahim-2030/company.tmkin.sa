@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Service;
+use App\Models\SubService;
 class HomeController extends Controller
 {
     /**
@@ -15,7 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return  view('client.home');
+        $Services=Service::with('sub_services')->get();
+        // dd($Services);
+        return  view('client.home',compact('Services'));
     }
 
     /**

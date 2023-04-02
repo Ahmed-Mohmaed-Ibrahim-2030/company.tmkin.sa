@@ -476,7 +476,7 @@
 
                                     <div class="input-text">
                                         <div class="input-div">
-                                            <select required require >
+                                            <select required require name="service" id='services' >
                                                 <option disabled selected> الخدمة المطلوبة     </option>
                                                 <option value="عقارات">عقارات</option>
                                                 <option value="إنشاءات">إنشاءات </option>
@@ -489,7 +489,7 @@
                                         </div></div>
                                     <div class="input-text">
                                         <div class="input-div">
-                                            <select placeholder="الخدمة الفرعية">
+                                            <select placeholder="الخدمة الفرعية" name="subservice" id='subservices'>
                                                  <option disabled selected>الخدمة الفرعية  </option>
                                                 <option value="تطوير عقاري">تطوير عقاري   </option>
                                                 <option value="بيع">بيع    </option>
@@ -676,6 +676,9 @@
 @endsection
 @section('scripts')
 <script src="{{asset('assets/vendor/location.js')}}"></script>
+<script src="{{asset('assets/vendor/Services.js')}}"></script>
+
+
     <script >
         let check=document.getElementById('employeeCkeck').onchange=function (){
             console.log("Changed");
@@ -816,4 +819,69 @@ let serviceForm= document.getElementById('serviceForm');
             submitFormFunction.call(form);
         }
     </script>
+{{--    Jquery cdn--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
+{{--            // Get the region data from the API--}}
+{{--            $.getJSON("https://company.tmkin.sa/api/regions", function(data) {--}}
+{{--                // Loop through the data and add options to the #region select box--}}
+{{--                $.each(data, function(index, value) {--}}
+{{--                    $('#regions').append('<option value="' + value.region_id + '">' + value.name_en + '</option>');--}}
+{{--                });--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+<script>
+{{--     the name_ar as innerhtml and id as value of option and add it  to #regions instead of its innerhtml except the first option  select box using url https://company.tmkin.sa/api/regions --}}
+$(document).ready(function() {
+    // Get the region data from the API and populate the #regions select box
+    $.getJSON("https://company.tmkin.sa/api/regions", function(data) {
+        console.log(data);
+        $('#regions').empty(); // Remove all existing options
+        $.each(data, function(index, value) {
+            $('#regions').append('<option value="' + value.region_id + '">' + value.name_ar + '</option>');
+        });
+    });
+
+    $(document).ready(function() {
+        $('#regions').on('change', function() {
+            var region_id = this.value;
+            $("#cities").html('');
+            $.ajax({
+                url: "https://company.tmkin.sa/api/cities/" + region_id,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $.each(data, function(index, value) {
+                        $('#cities').append('<option value="' + value.city_id + '">' + value.name_ar + '</option>');
+                    });
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#cities').on('change', function() {
+            var city_id = this.value;
+            $("#areas").html('');
+            $.ajax({
+                url: "https://company.tmkin.sa/api/districts/" + city_id,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $.each(data, function(index, value) {
+                        $('#districts').append('<option value="' + value.area_id + '">' + value.name_ar + '</option>');
+                    });
+                }
+            });
+        });
+    });
+
+
+
+
+
+</script>
+
 @endsection

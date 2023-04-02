@@ -35,3 +35,10 @@ Route::controller(\App\Http\Controllers\Api\Location\LocationController::class)-
   Route::get('/cities/{region_id}','getCitiesByRegion');
   Route::get('/districts/{city_id}','getDistrictByCity');
 });
+Route::controller(\App\Http\Controllers\Api\Services\getServicesController::class)->group(function ()
+{
+  // code...
+  Route::get('/services','getServices');
+  Route::get('/subservices/{service_id}','getSubServicesByService_id');
+
+});

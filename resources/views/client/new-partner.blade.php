@@ -3,53 +3,19 @@
 @section('content')
     <div class=""  >
         <div class="pt-5">
-            <div class=" p-5 container bg-image-2 pb-0">
+            <div class=" p-5 container bg-image-2 pb-0 text-center">
                 <h3 style="direction: rtl" class="text-center">
                     انضم لقائمة شركاء تمكين
                 </h3>
                 <p style="direction: rtl">
-                    أهلاً بكم في صفحة شركاء تمكين من القطاعين العام والخاص ذات الاهتمام والأهداف المماثلة، والتي نتطلع من خلالها إلى التعاون مع أفضل الشركاء لتقديم أفضل الخدمات والمنتجات ونتوقع تحقيق أعلى معايير الجودة والأمانة والاستدامة.
-                    نفخر في تمكين بما نقوم به؛ ونؤمن بأن العمل مع أفضل الشركاء من موردين ومهندسين ومقاولين وعقاريين يعتبر حافزاً وداعماً أساسياً في تحقيق رسالتنا.
-                    انضم الآن لتصلك الفرص ذات التي تتناسب مع تخصصك ونشاطك.
-                    خطوة بخطوة لتصبح شريكاً معنا في النجاح
+                  أهلاً بكم في صفحة شركاء تمكين، والتي نتطلع من خلالها إلى التعاون مع أفضل الشركاء لتحقيق أعلى معايير الجودة والاستدامة.
 
-                </p>
-                <div class="row justify-content-center">
+<br>
 
-                <ul class="col-12 col-md-8 col-lg-4 "  style="direction: rtl;list-style-type: none">
+      نفخر في تمكين بما نقوم به؛ ونؤمن بأن العمل مع أفضل الشركاء من موردين ومنفذين يعدّ داعماً أساسياً في تحقيق رسالتنا.
+</p>
 
-                    <li class="d-flex align-items-center mt-2">
-                        <i class="bi bi-check2"></i> <h6>
 
-                    التسجيل من خلال تعبئة نموذج الشراكة.
-                        </h6>
-                    </li>
-                    <li class="d-flex align-items-center mt-2">
-                        <i class="bi bi-check2"></i> <h6>
-
-                        سيتم التواصل معكم من فريق تمكين في حال ترشيحك.
-                        </h6>
-                    </li>
-                    <li class="d-flex align-items-center mt-2">
-                        <i class="bi bi-check2"></i> <h6>
-
-                        	التعريف ببرنامج الشراكة.
-                        </h6>
-                    </li>
-                    <li class="d-flex align-items-center mt-2">
-                        <i class="bi bi-check2"></i> <h6>
-
-                    توقيع العقد والبدء في العمل.
-                        </h6>
-                    </li >
-                    <li class="d-flex align-items-center mt-2">
-                        <i class="bi bi-check2"></i> <h6>
-
-                        نرحب بك شريكاً معنا.
-                        </h6>
-                    </li>
-                </ul>
-                </div>
             </div>
             <div class="form product-area bg-image-1"    >
                 <div class="container mt-5 p-5 pt-0 text-center">

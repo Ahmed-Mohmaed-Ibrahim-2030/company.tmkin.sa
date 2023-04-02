@@ -14,19 +14,24 @@
 :root {
   scroll-behavior: smooth;
 }
+.fw-bold.nav-link.scrollto{
+color:var(--color-white)!important;
+    
+    }
 *{
     font-size: 16px;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important;
     color: var(--color-secondary-dark) !important;
+    /* color: var(--color-white) !important; */
 }
 .bg-image-1{
-    background-image: url("../img/bg/bg-1.jpg");
+    background-image: url("../img/bg/bg-1.webp");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .bg-image-2{
-    background-image: url("../img/bg/bg-2.jpg");
+    background-image: url("../img/bg/bg-2.webp");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -193,6 +198,14 @@ section {
 }
 
 @media (min-width: 1280px) {
+    .fw-bold.nav-link.scrollto{
+  color: var(--color-secondary-dark) !important;
+    
+    }
+  *{
+    color: var(--color-secondary-dark) !important;
+  }
+
   .section-header p {
     max-width: 80%;
   }
@@ -235,6 +248,7 @@ section {
 }
 
 @media (max-width: 992px) {
+
   .breadcrumbs .d-flex {
     display: block !important;
   }
@@ -290,6 +304,7 @@ section {
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
+
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
@@ -3331,14 +3346,14 @@ navbar .active{
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: var(--color-btn);
+  color: var(--color-white)!important;
   transition: 0.3s;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0 !important;
 }
 
 .footer .footer-content .footer-newsletter form input[type=submit]:hover {
-  background: rgba(var(--color-primary-rgb), 0.85);
+
 }
 
 .footer .footer-legal {

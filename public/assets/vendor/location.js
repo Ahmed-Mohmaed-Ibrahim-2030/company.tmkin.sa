@@ -1,3 +1,4 @@
+let base_url='http://company.tmkin.sa/api/'
 function getlocation(action,select,id) {
 
   fetch(action, {
@@ -26,10 +27,12 @@ function getlocation(action,select,id) {
     //  location.replace('http://127.0.0.1:8001/payment/'+response.id);
     document.getElementById(select).innerHTML="";
     let newSelect="";
-    console.log(response[select]);
+//    console.log(response[select]);
 response[select].forEach(function(e){
+    console.log(e)
 newSelect=document.createElement('option');
 if(!e.name_en.includes('Riyadh')&&select!="districts"){
+    console.log("Riyadh");
   newSelect.disabled=true;
 }
 newSelect.value=e[id];
@@ -48,24 +51,24 @@ newSelect.innerHTML=e.name_ar;
 }
 
 document.getElementById('getLocation').addEventListener('click',function () {
-  let action='http://127.0.0.1:8001/api/regions';
+  let action=base_url+'regions';
   getlocation(action,'regions',"region_id");
-  action='http://127.0.0.1:8001/api/cities/1';
+  action=base_url+'cities/1';
 getlocation(action,'cities',"city_id");
-action='http://127.0.0.1:8001/api/districts/3';
+action=base_url+'districts/3';
 getlocation(action,'districts',"district_id");
 
 
 })
 document.getElementById('regions').addEventListener('change',function (e) {
   console.log(e.currentTarget.value);
-    let action='http://127.0.0.1:8001/api/cities/'+e.currentTarget.value;
+    let action=base_url+'cities/'+e.currentTarget.value;
   getlocation(action,'cities',"city_id");
 
 })
 document.getElementById('cities').addEventListener('change',function (e) {
   console.log(e.currentTarget.value);
-    let action='http://127.0.0.1:8001/api/districts/'+e.currentTarget.value;
+    let action=base_url+'districts/'+e.currentTarget.value;
   getlocation(action,'districts',"district_id");
 
 })
